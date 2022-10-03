@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//MARK: - Objects properties
 class ShowDataViewController: UIViewController {
     let apiCall = ApiCall()
     var cellsData = [CellsData]()
@@ -17,7 +17,6 @@ class ShowDataViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 23, weight: .medium)
-        
         return label
     }()
     
@@ -31,7 +30,6 @@ class ShowDataViewController: UIViewController {
         textField.layer.cornerRadius = 8
         textField.backgroundColor = .systemGray5
         textField.placeholder = "search for name, phone, account number..."
-        
         return textField
     }()
     
@@ -55,7 +53,7 @@ class ShowDataViewController: UIViewController {
             print("success: \(self.personalData.count)")
         }
     }
-    
+    //MARK: Setting of the views and constraints
     func setupViews() {
         view.addSubview(searchTitleLabel)
         view.addSubview(searchTextField)
@@ -77,7 +75,7 @@ class ShowDataViewController: UIViewController {
         ])
     }
 }
-
+//MARK: - Extending the datasource and delegates of the tableviews.
 extension ShowDataViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return personalData.count
@@ -92,6 +90,5 @@ extension ShowDataViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    
-    }
+}
 

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//MARK: OBjects properties for table cells
 class Cells: UITableViewCell {
     
     let identifier = "Cell"
@@ -43,7 +43,7 @@ class Cells: UITableViewCell {
         self.backgroundColor = .red
         setupViews()
     }
-    
+    //MARK: Setting of the views and constraints
     func setupViews() {
         self.addSubview(nameLabel)
         self.addSubview(accountNumberLabel)
@@ -64,12 +64,10 @@ class Cells: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    //MARK: - Configuring the multiple cells data
     func configure(with model: CellsData) {
         nameLabel.text = model.name
         accountNumberLabel.text = model.accountNumber
         phoneNumberLabel.text = model.phoneNumber
-        
-        }
-
+    }
 }

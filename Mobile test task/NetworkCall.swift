@@ -16,7 +16,7 @@ class ApiCall {
     
     func getData(completed: @escaping (Welcome) -> ()) {
         
-        let url = URL(string: "https://randomuser.me/api/?results=2")
+        let url = URL(string: "https://randomuser.me/api")
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             if error != nil {
                 print("\(error!)")
@@ -26,7 +26,6 @@ class ApiCall {
                     self.dataRoutine = result.results
                     DispatchQueue.main.async {
                         completed(result)
-                        //print(self.dataRoutine.count)
                     }
                 }
                 catch {
