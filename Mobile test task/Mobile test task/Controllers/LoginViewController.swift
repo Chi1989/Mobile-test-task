@@ -8,7 +8,7 @@
 import UIKit
 
 //MARK: - Objects Properties
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     lazy var loginTitleLabel: UILabel = {
         let label = UILabel()
@@ -25,7 +25,6 @@ class LoginViewController: UIViewController {
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
         textField.leftViewMode = .always
         textField.returnKeyType = .continue
-        textField.keyboardType = .numberPad
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.cornerRadius = 8
         textField.backgroundColor = .systemGray5
@@ -49,11 +48,13 @@ class LoginViewController: UIViewController {
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
         textField.leftViewMode = .always
         textField.returnKeyType = .continue
-        textField.keyboardType = .numberPad
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.cornerRadius = 8
         textField.backgroundColor = .systemGray5
         textField.placeholder = "password"
+        textField.isSecureTextEntry = true
+        textField.autocorrectionType = .no
+        textField.delegate = self
         
         return textField
     }()
